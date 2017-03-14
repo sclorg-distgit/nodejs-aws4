@@ -7,7 +7,7 @@
 
 Name:       %{?scl_prefix}nodejs-%{npm_name}
 Version:        1.4.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:    Signs and prepares requests using AWS Signature Version 4
 License:    MIT
 URL:        https://github.com/mhart/aws4.git
@@ -28,7 +28,7 @@ rm -rf node_modules
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr aws4.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr *.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 # If any binaries are included, symlink them to bindir here
 
 
@@ -46,6 +46,9 @@ cp -pfr aws4.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Jan 18 2017 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.4.1-2
+- Copy all js files in %%install
+
 * Thu Jan 05 2017 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.4.1-1
 - Updated with script
 
